@@ -1,0 +1,16 @@
+﻿---
+applications:
+- name: actuatorsdemo
+  memory: 512M
+  stack: cflinuxfs2
+  buildpack: dotnet_core_buildpack  
+  instances: 1
+  random-route: true
+  path: bin/Debug/netcoreapp2.1/ubuntu.14.04-x64/publish
+  env:
+    ASPNETCORE_ENVIRONMENT: production
+  services:
+   - coreConfigServer
+   - sqlServerInstance
+   - eurekaServer
+  

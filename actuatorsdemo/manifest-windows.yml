@@ -1,0 +1,17 @@
+﻿---
+applications:
+- name: actuatorsdemo-windows
+  memory: 512M
+  stack: windows2016
+  buildpack: binary_buildpack  
+  instances: 1
+  random-route: true
+  path: bin/Debug/netcoreapp2.1/win10-x64/publish
+  command: cmd /c .\ActuatorsDemo --server.urls http://*:%PORT%
+  env:
+    ASPNETCORE_ENVIRONMENT: production
+  services:
+   - coreConfigServer
+   - sqlServerInstance
+   - eurekaServer
+  

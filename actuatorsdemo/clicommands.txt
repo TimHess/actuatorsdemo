@@ -1,0 +1,5 @@
+﻿dotnet publish -f netcoreapp2.1 -r ubuntu.14.04-x64
+cf push -f manifest.yml
+
+dotnet publish -f netcoreapp2.1 -r win10-x64
+cf push -f manifest-windows.yml
